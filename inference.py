@@ -41,6 +41,7 @@ def inference(a):
     generator.load_state_dict(state_dict_g['generator'])
 
     filelist = os.listdir(a.input_wavs_dir)
+    filelist = [i for i in filelist if i.endswith('.wav')]
 
     os.makedirs(a.output_dir, exist_ok=True)
 
@@ -66,7 +67,7 @@ def main():
     print('Initializing Inference Process..')
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input_wavs_dir', default='test_files')
+    parser.add_argument('--input_wavs_dir', default='LJSpeech-1.1/test')
     parser.add_argument('--output_dir', default='generated_files')
     parser.add_argument('--checkpoint_file', required=True)
     a = parser.parse_args()

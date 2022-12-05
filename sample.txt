@@ -1,0 +1,1 @@
+python train.py --fine_tuning True --config config_v1.json --checkpoint_path models
